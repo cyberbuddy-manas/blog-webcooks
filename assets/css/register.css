@@ -1,0 +1,134 @@
+/*======== Particle Animation from Codepen ==========*/
+
+:root {
+  --black: rgba(0, 0, 0, 0.8);
+  --white: rgba(444, 444, 444, 0.9);
+  --label: rgba(170, 170, 170, 1);
+  --input: rgba(444, 444, 444, 0.2);
+  --inputf: rgba(444, 444, 444, 0.5);
+  --button: rgba();
+}
+
+body {
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.pentahedron {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  fill: #3E82F7;
+}
+
+.point {
+  fill: #8491A3;
+}
+
+.rhombus {
+  fill: #2DA94F;
+  stroke: #2DA94F;
+}
+
+.x {
+  fill: #FDBD00;
+}
+
+.circle {
+  fill: #ED412D;
+}
+
+svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  transform: translateZ(0px);
+}
+
+/*========= Register Section ========*/
+
+.register {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+}
+
+.register div {
+  width: 700px;
+  height: 500px;
+  padding: 50px 100px;
+  background: rgba(40, 40, 40, 0.5);
+  /*background: rgba(444, 444, 444, 0.4);*/
+  backdrop-filter: blur(4px);
+  border-radius: 50px;
+  /*border: 5px solid rgba(210, 199, 255, 1);*/
+}
+
+.register h1 {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--white);
+}
+
+.register label {
+  color: var(--label);
+  font-weight: 600;
+}
+
+.register input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2.5px solid var(--input);
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--white);
+}
+
+.register input:focus {
+  outline: none;
+  border-bottom: 2.5px solid var(--inputf);
+  /*border-bottom: 2.5px solid rgba(210, 199, 255, 1);*/
+}
+
+.register button {
+  display: flex;
+  margin: auto;
+  margin-top: 18px;
+  padding: 10px 35px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--white);
+  border: 3px solid rgba(210, 199, 255, 1);
+  font-weight: 600;
+  transition: 0.3s;
+  color: var(--black);
+}
+
+.register button:hover {
+  background-color: rgba(210, 199, 255, 0.3);
+  border: 3px solid rgba(210, 199, 255, 0.0);
+  padding: 10px 43px;
+}
+
+.register button:focus {
+  padding: 8px 30px;
+  outline: none;
+  background-color: rgba(210, 199, 255, 0.3);
+  border: 3px solid rgba(210, 199, 255, 0.0);
+}
