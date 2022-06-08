@@ -1,12 +1,12 @@
 /*======== Particle Animation from Codepen ==========*/
 
 :root {
-  --black: rgba(0, 0, 0, 0.8);
-  --white: rgba(444, 444, 444, 0.9);
-  --label: rgba(170, 170, 170, 1);
-  --input: rgba(444, 444, 444, 0.2);
-  --inputf: rgba(444, 444, 444, 0.5);
-  --button: rgba();
+  --bgP: rgba(0, 0, 0, 1);
+  --bgS: rgba(40, 40, 40, 0.5);
+  --bgT: rgba(60, 60, 60, 0.5);
+  --primary: rgba(250, 250, 250, 1);
+  --secondary: rgba(250, 250, 250, 0.6);
+  --tertiary: rgba(250, 250, 250, 0.3);
 }
 
 body {
@@ -19,7 +19,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: var(--bgP);
 }
 
 .pentahedron {
@@ -71,22 +71,20 @@ svg {
   width: 700px;
   height: 500px;
   padding: 50px 100px;
-  background: rgba(40, 40, 40, 0.5);
-  /*background: rgba(444, 444, 444, 0.4);*/
+  background: var(--bgS);
   backdrop-filter: blur(4px);
   border-radius: 50px;
-  /*border: 5px solid rgba(210, 199, 255, 1);*/
 }
 
 .register h1 {
   font-weight: 600;
   text-align: center;
   margin-bottom: 30px;
-  color: var(--white);
+  color: var(--primary);
 }
 
 .register label {
-  color: var(--label);
+  color: var(--secondary);
   font-weight: 600;
 }
 
@@ -94,41 +92,61 @@ svg {
   width: 100%;
   background-color: transparent;
   border: none;
-  border-bottom: 2.5px solid var(--input);
+  border-bottom: 2px solid var(--tertiary);
   margin-bottom: 20px;
-  font-size: 18px;
-  color: var(--white);
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.register input::placeholder {
+  color: var(--tertiary);
+  font-weight: 300;
 }
 
 .register input:focus {
   outline: none;
-  border-bottom: 2.5px solid var(--inputf);
+  border-bottom: 2px solid var(--primary);
   /*border-bottom: 2.5px solid rgba(210, 199, 255, 1);*/
+}
+
+.register input:-webkit-autofill,
+.register input:-webkit-autofill:hover, 
+.register input:-webkit-autofill:focus, 
+.register input:-webkit-autofill:active{
+  transition: all 0s 50000s;
 }
 
 .register button {
   display: flex;
   margin: auto;
   margin-top: 18px;
-  padding: 10px 35px;
+  padding: 15px 50px;
   border: none;
   border-radius: 8px;
-  background-color: var(--white);
-  border: 3px solid rgba(210, 199, 255, 1);
+  background-color: var(--bgT);
   font-weight: 600;
   transition: 0.3s;
-  color: var(--black);
+  color: var(--primary);
 }
 
 .register button:hover {
-  background-color: rgba(210, 199, 255, 0.3);
-  border: 3px solid rgba(210, 199, 255, 0.0);
-  padding: 10px 43px;
+  background-color: var(--bgS);
+  padding: 13px 43px;
 }
 
 .register button:focus {
-  padding: 8px 30px;
+  padding: 10px 30px;
   outline: none;
-  background-color: rgba(210, 199, 255, 0.3);
-  border: 3px solid rgba(210, 199, 255, 0.0);
+  background-color: var(--bgS);
 }
+
+/*====== Background Switch Button ======*/
+
+.themeBtn {
+  background-color: white;
+  position: fixed;
+  z-index: 4;
+  right: 80px;
+  bottom: 50px;
+} 

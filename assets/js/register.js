@@ -98,3 +98,28 @@ update();
 document.getElementById("submit").addEventListener('focus', () => {
   setTimeout(()=> document.getElementById("submit").blur(), 2000)
 })
+
+//=========== For Theme Change ===============
+
+let theme = 0;
+
+document.getElementById("themeBtn").addEventListener('click', ()=> {
+  if (theme == 0) {
+    document.documentElement.style.setProperty('--bgP', 'white');
+    document.documentElement.style.setProperty('--bgS', 'rgba(210, 199, 255, 0.4)');
+    document.documentElement.style.setProperty('--bgT', 'white');
+    document.documentElement.style.setProperty('--primary', 'rgba(0, 0, 0, 0.8)');
+    document.documentElement.style.setProperty('--secondary', 'rgba(0, 0, 0, 0.6)');
+    document.documentElement.style.setProperty('--tertiary', 'rgba(0, 0, 0, 0.3)');
+    theme = 1
+  }
+  else if (theme == 1) {
+    document.documentElement.style.setProperty('--bgP', 'rgba(0, 0, 0, 1)');
+    document.documentElement.style.setProperty('--bgS', 'rgba(40, 40, 40, 0.5)');
+    document.documentElement.style.setProperty('--bgT', 'rgba(60, 60, 60, 0.5)');
+    document.documentElement.style.setProperty('--primary', 'rgba(250, 250, 250, 1)');
+    document.documentElement.style.setProperty('--secondary', 'rgba(250, 250, 250, 0.6)');
+    document.documentElement.style.setProperty('--tertiary', 'rgba(250, 250, 250, 0.3)');
+    theme = 0
+  }
+}); 
