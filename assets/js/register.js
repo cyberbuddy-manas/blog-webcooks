@@ -122,4 +122,107 @@ document.getElementById("themeBtn").addEventListener('click', ()=> {
     document.documentElement.style.setProperty('--tertiary', 'rgba(250, 250, 250, 0.3)');
     theme = 0
   }
-}); 
+});
+
+//============ Toast ===============
+
+function toast(msg) {
+  var x = document.getElementById("snackbar");
+  x.innerHTML = msg;
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+//============ Sending the data ===============
+
+let db = firebase.database();
+
+function sendData() {
+  const uid = document.getElementById('uid').value;
+  const mail = document.getElementById('mail').value;
+  const pass = document.getElementById('pass').value;
+
+  let checkReg = 0; //0 means signal
+
+  if (uid == '' || uid.length < 7) {
+    toast("Enter a valid value");
+    document.getElementById('uid').focus();
+    checkReg = 1;   //1 means wait
+  }
+  else if (mail == '' || mail.length < 11) {
+    toast("Enter a valid value");
+    document.getElementById('mail').focus();
+    checkReg = 1;
+  }
+  else if (pass == '' || pass.length < 6) {
+    toast("Enter a valid value");
+    document.getElementById('pass').focus();
+    checkReg = 1;
+  }
+  else if (pass == uid) {
+    toast("Enter a unique password");
+    document.getElementById('pass').focus();
+    checkReg = 1;
+  }
+
+  if (checkReg == 0) {
+    db.ref(uid + "/usrData").set({
+      username: uid,
+      mail: mail,
+      password: pass
+    }).then((onresolved) => {
+      document.getElementById('register').style.display = "none";
+      document.getElementById('details').style.display = "grid";
+    });
+  }
+
+  function sendDetails() {
+    const fname = document.getElementById('fname').value;
+    const lname = document.getElementById('lname').value;
+    const insta = document.getElementById('insta').value;
+    const github = document.getElementById('github').value;
+    const linkedin = document.getElementById('linkedin').value;
+
+    let checkDetails = 0;
+
+    if (fname == '' || fname.length < 3) {
+      toast("Enter a valid value");
+      document.getElementById('fname').focus();
+      checkDetails = 1; 
+    }
+
+    if (checkDetails == 0) {
+      db.ref(uid + "/usrData").set({
+        username: uid,
+        mail: mail,
+        password: pass,
+        fname: fname,
+        lname: lname,
+        instagram: insta,
+        github: github,
+        linkedin: linkedin
+      }).then((onresolved) => {
+        location.href = "user/dashboard.html?user=" + uid;
+      });
+    }
+  }
+
+  function skipDetails() {
+    db.ref(uid + "/usrData").set({
+        username: uid,
+        mail: mail,
+        password: pass,
+        fname: "",
+        lname: "",
+        instagram: "",
+        github: "",
+        linkedin: ""
+      }).then((onresolved) => {
+        location.href = "user/dashboard.html?user=" + uid;
+      });
+  }
+  document.getElementById("next").addEventListener('click', sendDetails);  //for register div
+  document.getElementById("skipBtn").addEventListener('click', skipDetails);  //for register div
+}
+
+document.getElementById("submit").addEventListener('click', sendData);  //for register div

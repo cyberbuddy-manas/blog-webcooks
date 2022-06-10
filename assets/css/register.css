@@ -13,12 +13,17 @@ body {
   overflow: hidden;
 }
 
+figure {
+  margin: 0;
+}
+
 .background {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  transition: 0.3s ease-in-out;
   background-color: var(--bgP);
 }
 
@@ -54,9 +59,9 @@ svg {
   transform: translateZ(0px);
 }
 
-/*========= Register Section ========*/
+/*========= Register and Details Section ========*/
 
-.register {
+.register, .details {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -67,46 +72,53 @@ svg {
   place-items: center;
 }
 
-.register div {
+.register div, .details div {
   width: 700px;
-  height: 500px;
+  min-height: 500px;
   padding: 50px 100px;
   background: var(--bgS);
   backdrop-filter: blur(4px);
   border-radius: 50px;
 }
 
-.register h1 {
+.register .imp, .details .imp {
+  color: red;
+  opacity: 0.8;
+  /*font-size: 19px;*/
+}
+
+.register h1, .details h1 {
   font-weight: 600;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   color: var(--primary);
 }
 
-.register label {
+.register label, .details label {
   color: var(--secondary);
   font-weight: 600;
 }
 
-.register input {
+.register input, .details input {
   width: 100%;
+  transition: 0.3s ease-in-out;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid var(--tertiary);
-  margin-bottom: 20px;
+  border-bottom: 1.5px solid var(--tertiary);
+  margin-bottom: 28px;
   font-size: 20px;
   color: var(--primary);
   font-weight: 500;
 }
 
-.register input::placeholder {
+.register input::placeholder, .details input::placeholder {
   color: var(--tertiary);
   font-weight: 300;
 }
 
-.register input:focus {
+.register input:focus, .details input:focus {
   outline: none;
-  border-bottom: 2px solid var(--primary);
+  border-bottom: 1.5px solid var(--primary);
   /*border-bottom: 2.5px solid rgba(210, 199, 255, 1);*/
 }
 
@@ -117,36 +129,126 @@ svg {
   transition: all 0s 50000s;
 }
 
-.register button {
+.btnContainer {
+  height: 60px;
+}
+
+.register button, .details button {
   display: flex;
   margin: auto;
   margin-top: 18px;
   padding: 15px 50px;
   border: none;
   border-radius: 8px;
+  transition: 0.3s ease-in-out;
   background-color: var(--bgT);
   font-weight: 600;
   transition: 0.3s;
   color: var(--primary);
 }
 
-.register button:hover {
+.register button:hover, .details button:hover {
   background-color: var(--bgS);
-  padding: 13px 43px;
 }
 
-.register button:focus {
-  padding: 10px 30px;
+.register button:focus, .details button:focus {
+  padding: 13px 40px;
   outline: none;
   background-color: var(--bgS);
+}
+
+/*====== Details Section ===========*/
+
+#details {
+  display: none;
+}
+
+.details header {
+  display: flex;
+  align-items: center;
+  gap: 0 30px;
+}
+
+.details .imp1 {
+  visibility: hidden;
+}
+
+.details input:-webkit-autofill,
+.details input:-webkit-autofill:hover, 
+.details input:-webkit-autofill:focus, 
+.details input:-webkit-autofill:active{
+  transition: all 0s 50000s;
+}
+
+.details .skipContainer {
+  height: 40px;
+}
+
+.details .skipBtn {
+  justify-content: end;
+  margin: unset;
+  padding: 5px 15px;
+  font-weight: 400;
+  font-size: 15px;
+  margin-left: auto;
+  transition: 0.2s;
+}
+
+.details .skipBtn:focus {
+  padding: 4px 13px;
 }
 
 /*====== Background Switch Button ======*/
 
 .themeBtn {
+  transition: 0.3s ease-in-out;
   background-color: white;
   position: fixed;
   z-index: 4;
   right: 80px;
   bottom: 50px;
 } 
+
+/*======== Toast ============*/
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
