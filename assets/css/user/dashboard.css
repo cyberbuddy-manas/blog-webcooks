@@ -1,0 +1,132 @@
+/*=========== Sidebar =============*/
+
+.sidebar {
+	width: 27%;
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	padding: 30px;
+}
+
+.sidebar section {
+	width: 100%;
+	height: auto;
+	background-color: rgba(237, 233, 255, 1);
+	border-radius: 22px;
+	padding: 40px 30px;
+	padding-top: 20px;
+}
+
+.sidebar div {
+	width: 100%;
+}
+
+.sidebar .menu {
+	height: 30px;
+}
+
+.sidebar .user img {
+	border-radius: 50%;
+	display: flex;
+	margin: auto;
+}
+
+.sidebar .user h1 {
+	text-align: center;
+	font-size: 16px;
+	font-weight: 600;
+	margin: 15px 0;
+}
+
+.sidebar .details input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1.8px solid rgba(0, 0, 0, 0.6);
+	width: 100%;
+	margin-top: 30px;
+	font-weight: 600;
+	color: black;
+}
+
+.sidebar .details input:focus {
+	outline: none;
+	border-bottom: 1.8px solid rgba(0, 0, 0, 1);
+}
+
+.sidebar .details figure {
+	display: flex;
+	margin-bottom: 0;
+}
+
+.sidebar .details figure:nth-child(1) {
+	gap: 20px 30px;
+}
+
+.sidebar .socials {
+	flex-wrap: wrap;
+	gap: 20px 25%;
+	justify-content: center;
+	margin-top: 35px;
+}
+
+.sidebar .socials img {
+	width: 45px;
+}
+
+.sidebar #editDetails {
+	background-color: black;
+	color: white;
+	padding: 5px 30px;
+	border-radius: 50px;
+	font-weight: 600;
+	display: flex;
+	margin: auto;
+	margin-top: 35px;
+	transition: 0.2s ease-in-out;
+}
+
+.sidebar #editDetails:hover {
+	padding: 5px 35px;
+}
+
+.sidebar #editDetails:focus {
+	padding: 5px 35px;
+	background: transparent;
+	color: black;
+	border: 2px solid black;
+}
+
+.sidebar .logout {
+	display: flex;
+	gap: 0 15px;
+	height: 100px;
+	align-items: end;
+	justify-content: center;
+}
+
+.sidebar .logout img {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.sidebar .logout h1 {
+	font-size: 22px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+/*=========== Right Main Section =========*/
+
+.main {
+	width: 73%;
+	min-height: 150vh;
+	float: right;
+	padding: 30px;
+	padding-left: 20px;
+}
+
+.main section {
+	width: 100%;
+}

@@ -1,18 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title></title>
+
+	<!--====== Favicons =======-->
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicons/favicon-16x16.png">
+	<!-- <link rel="manifest" href="../assets/images/favicons/site.webmanifest"> -->
+
+	<!--====== Meta Tags ========-->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<meta name="description" content="">
+	<meta name=”robots” content=”noindex, nofollow”>
+	<meta name=”robots” content=”index, follow”>
+
+	<!--====== Google Fonts ======-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<!--====== For SEO ======-->
+	<link rel="canonical" href="">
+
+	<!--====== Bootstrap ======-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!--========== CSS ============-->
+	<style type="text/css">
+		* {
+		  margin: 0;
+		  padding: 0;
+		  font-family: 'Montserrat', sans-serif;
+		}
+	</style>
+
+	<!--====== CSS Files ======-->
+	<link rel="stylesheet" type="text/css" href="../assets/css/user/dashboard.css">
 </head>
 <body>
-	<h1>Your Name: <span id="username"></span></h1>
+	<aside class="sidebar">		<!-- Sidebar -->
+		<section>
+			<div class="menu">
+				<figure>X</figure>
+			</div>
+			<div class="user">
+				<img id="avatar" src="https://fakeimg.pl/130x130">
+				<h1 id="username">@harshitraj2212</h1>
+			</div>
+			<div class="details">
+				<figure>
+					<input disabled="true" id="fname" type="text" value="Harshit" placeholder="Your Input">
+					<input disabled="true" id="lname" type="text" value="Raj" placeholder="Your Input">
+				</figure>
+				<input disabled="true" id="mail" type="mail" value="harshitraj2212@gmail.com" placeholder="Your Input">
+				<input disabled="true" id="pass" type="password" value="harshit@2213" placeholder="Your Input">
+				<figure class="socials">
+					<a id="insta" href="#"><img src="https://fakeimg.pl/40x40"></a>
+					<a id="linkedin" href="#"><img src="https://fakeimg.pl/40x40"></a>
+					<a id="github" href="#"><img src="https://fakeimg.pl/40x40"></a>
+				</figure>
+				<button id="editDetails">Edit Details</button>
+			</div>
+			<div class="logout">
+				<img src="https://fakeimg.pl/45x45">
+				<h1>Logout</h1>
+			</div>
+		</section>
+	</aside>
+	<section class="main">		<!-- Right Section -->
+		<section></section>
+	</section>
 
 	<script type="text/javascript">
-		var url = location.href;
-		var username = url.split("#")[1];
+		document.getElementById('editDetails').addEventListener('click', ()=> {
+			document.getElementById('fname').disabled = false;
+			document.getElementById('lname').disabled = false;
+			document.getElementById('mail').disabled = false;
+			document.getElementById('pass').disabled = false;
 
-		document.getElementById("username").innerHTML = username;
+			document.getElementById('fname').focus();
+		})
 	</script>
 </body>
 </html>
