@@ -46,11 +46,13 @@
 	<aside class="sidebar">		<!-- Sidebar -->
 		<section>
 			<div class="menu">
-				<figure>X</figure>
+				<figure title="Collapse Menu">X</figure>
 			</div>
 			<div class="user">
-				<img id="avatar" src="https://fakeimg.pl/130x130">
-				<h1 id="username">@harshitraj2212</h1>
+				<figure>
+					<img id="avatar" src="../assets/images/dashboard/user.png">
+				</figure>
+				<h1><a id="username" href="">@harshitraj2212</a></h1>
 			</div>
 			<div class="details">
 				<figure>
@@ -60,20 +62,25 @@
 				<input disabled="true" id="mail" type="mail" value="harshitraj2212@gmail.com" placeholder="Your Input">
 				<input disabled="true" id="pass" type="password" value="harshit@2213" placeholder="Your Input">
 				<figure class="socials">
-					<a id="insta" href="#"><img src="https://fakeimg.pl/40x40"></a>
-					<a id="linkedin" href="#"><img src="https://fakeimg.pl/40x40"></a>
-					<a id="github" href="#"><img src="https://fakeimg.pl/40x40"></a>
+					<a id="insta" href="#"><img src="../assets/images/dashboard/instagram.png"></a>
+					<a id="linkedin" href="#"><img src="../assets/images/dashboard/linkedin.png"></a>
+					<a id="youtube" href="#"><img src="../assets/images/dashboard/youtube.png"></a>
 				</figure>
 				<button id="editDetails">Edit Details</button>
 			</div>
 			<div class="logout">
-				<img src="https://fakeimg.pl/45x45">
+				<img src="../assets/images/dashboard/logout-btn.png">
 				<h1>Logout</h1>
 			</div>
 		</section>
 	</aside>
 	<section class="main">		<!-- Right Section -->
-		<section></section>
+		<header>
+			<div id="t-views" class="d-card"></div>
+			<div id="viewers" class="d-card"></div>
+			<div id="n-subs" class="d-card subs"></div>
+			<div id="crt-btn" class="btn"></div>
+		</header>
 	</section>
 
 	<script type="text/javascript">
@@ -82,6 +89,9 @@
 			document.getElementById('lname').disabled = false;
 			document.getElementById('mail').disabled = false;
 			document.getElementById('pass').disabled = false;
+
+			const end = document.getElementById('fname').value.length;
+  			document.getElementById('fname').setSelectionRange(end, end);
 
 			document.getElementById('fname').focus();
 		})

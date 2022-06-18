@@ -1,3 +1,14 @@
+:root {
+	--p-bg: white;
+	--s-bg: rgba(237, 233, 255, 1);
+	--btn: rgba(0, 0, 0, 0.9);
+	--btn-f: rgba(0, 0, 0, 0.8);
+}
+
+body {
+	background-color: var(--p-bg);
+}
+
 /*=========== Sidebar =============*/
 
 .sidebar {
@@ -8,10 +19,16 @@
 	padding: 30px;
 }
 
+@media screen and (max-width: 1065px) {
+	.sidebar {
+		width: 285px;
+	}
+}
+
 .sidebar section {
 	width: 100%;
-	height: auto;
-	background-color: rgba(237, 233, 255, 1);
+	min-height: 100%;
+	background-color: var(--s-bg);
 	border-radius: 22px;
 	padding: 40px 30px;
 	padding-top: 20px;
@@ -25,10 +42,25 @@
 	height: 30px;
 }
 
+.sidebar .user {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.sidebar .user figure {
+	width: 130px;
+	height: 130px;
+	display: flex;
+	justify-content: center;
+	margin: auto;
+}
+
 .sidebar .user img {
 	border-radius: 50%;
 	display: flex;
 	margin: auto;
+	width: 100%;
 }
 
 .sidebar .user h1 {
@@ -36,6 +68,37 @@
 	font-size: 16px;
 	font-weight: 600;
 	margin: 15px 0;
+}
+
+@media screen and (max-height: 700px) {
+	.sidebar section {
+		padding: 20px 30px;
+	}
+
+	.sidebar .user h1 {
+		font-size: 15px;
+	}
+
+	.sidebar .user figure {
+		width: 90px;
+		height: 90px;
+	}
+}
+
+.sidebar .user a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.sidebar .user a:hover {
+	text-decoration: underline;
+}
+
+.sidebar .details input:-webkit-autofill,
+.sidebar .details input:-webkit-autofill:hover, 
+.sidebar .details input:-webkit-autofill:focus, 
+.sidebar .details input:-webkit-autofill:active{
+  transition: all 0s 50000s;
 }
 
 .sidebar .details input {
@@ -53,6 +116,12 @@
 	border-bottom: 1.8px solid rgba(0, 0, 0, 1);
 }
 
+@media screen and (max-height: 700px) {
+	.sidebar .details input {
+		margin-top: 25px;
+	}
+}
+
 .sidebar .details figure {
 	display: flex;
 	margin-bottom: 0;
@@ -64,36 +133,47 @@
 
 .sidebar .socials {
 	flex-wrap: wrap;
-	gap: 20px 25%;
-	justify-content: center;
+	justify-content: space-around;
 	margin-top: 35px;
+	transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1200px) {
+	.sidebar .socials {
+		justify-content: space-between;
+	}
 }
 
 .sidebar .socials img {
-	width: 45px;
+	width: 35px;
+}
+
+@media screen and (max-height: 700px) {
+	.sidebar .socials img {
+		width: 28px;
+	}
 }
 
 .sidebar #editDetails {
-	background-color: black;
+	background-color: var(--btn);
 	color: white;
-	padding: 5px 30px;
+	padding: 3px 28px;
 	border-radius: 50px;
 	font-weight: 600;
 	display: flex;
 	margin: auto;
 	margin-top: 35px;
+	border: 5px solid black;
 	transition: 0.2s ease-in-out;
 }
 
 .sidebar #editDetails:hover {
-	padding: 5px 35px;
+	padding: 3px 35px;
 }
 
 .sidebar #editDetails:focus {
-	padding: 5px 35px;
-	background: transparent;
-	color: black;
-	border: 2px solid black;
+	padding: 3px 30px;
+	border: 5px solid black;
 }
 
 .sidebar .logout {
@@ -104,9 +184,15 @@
 	justify-content: center;
 }
 
+@media screen and (max-height: 700px) {
+	.sidebar .logout {
+		height: 80px;
+	}
+}
+
 .sidebar .logout img {
-	width: 45px;
-	height: 45px;
+	width: 35px;
+	height: 35px;
 	border-radius: 50%;
 	cursor: pointer;
 }
@@ -115,7 +201,20 @@
 	font-size: 22px;
 	font-weight: 600;
 	cursor: pointer;
+	margin-bottom: 5px;
 }
+
+@media screen and (max-height: 700px) {
+	.sidebar .logout img {
+		width: 32px;
+		height: 32px;
+	}
+
+	.sidebar .logout h1 {
+		font-size: 18px;
+	}
+}
+
 
 /*=========== Right Main Section =========*/
 
@@ -127,6 +226,13 @@
 	padding-left: 20px;
 }
 
-.main section {
+.main header {
 	width: 100%;
+	padding: 20px;
+}
+
+.main .d-card {
+	width: 350px;
+	height: 290px;
+	background-color: ;
 }
