@@ -1,0 +1,212 @@
+/*======== Particle Animation from Codepen ==========*/
+
+:root {
+  --bgP: rgba(0, 0, 0, 1);
+  --bgS: rgba(40, 40, 40, 0.5);
+  --bgT: rgba(60, 60, 60, 0.5);
+  --primary: rgba(250, 250, 250, 1);
+  --secondary: rgba(250, 250, 250, 0.6);
+  --tertiary: rgba(250, 250, 250, 0.3);
+}
+
+body {
+  overflow: hidden;
+}
+
+figure {
+  margin: 0;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s ease-in-out;
+  background-color: var(--bgP);
+}
+
+.pentahedron {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  fill: #3E82F7;
+}
+
+.point {
+  fill: #8491A3;
+}
+
+.rhombus {
+  fill: #2DA94F;
+  stroke: #2DA94F;
+}
+
+.x {
+  fill: #FDBD00;
+}
+
+.circle {
+  fill: #ED412D;
+}
+
+svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  transform: translateZ(0px);
+}
+
+/*========= Login Section ========*/
+
+.login {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+}
+
+.login div {
+  width: 700px;
+  padding: 50px 100px;
+  background: var(--bgS);
+  backdrop-filter: blur(4px);
+  border-radius: 50px;
+}
+
+.login .imp {
+  color: red;
+  opacity: 0.8;
+  /*font-size: 19px;*/
+}
+
+.login h1 {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--primary);
+}
+
+.login label {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.login input {
+  width: 100%;
+  transition: 0.3s ease-in-out;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--tertiary);
+  margin-bottom: 28px;
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.login input::placeholder {
+  color: var(--tertiary);
+  font-weight: 300;
+}
+
+.login input:focus {
+  outline: none;
+  border-bottom: 1.5px solid var(--primary);
+  /*border-bottom: 2.5px solid rgba(210, 199, 255, 1);*/
+}
+
+.login input:-webkit-autofill,
+.login input:-webkit-autofill:hover, 
+.login input:-webkit-autofill:focus, 
+.login input:-webkit-autofill:active{
+  transition: all 0s 50000s;
+}
+
+.btnContainer {
+  height: 60px;
+}
+
+.login button {
+  display: flex;
+  margin: auto;
+  margin-top: 18px;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  background-color: var(--bgT);
+  font-weight: 600;
+  transition: 0.3s;
+  color: var(--primary);
+}
+
+.login button:hover {
+  background-color: var(--bgS);
+}
+
+.login button:focus {
+  padding: 13px 40px;
+  outline: none;
+  background-color: var(--bgS);
+}
+
+/*====== Background Switch Button ======*/
+
+.themeBtn {
+  transition: 0.3s ease-in-out;
+  background-color: white;
+  position: fixed;
+  z-index: 4;
+  right: 80px;
+  bottom: 50px;
+} 
+
+/*======== Toast ============*/
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}

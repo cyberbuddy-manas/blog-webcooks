@@ -144,7 +144,7 @@ function sendData() {
 
   let checkReg = 0; //0 means signal
 
-  if (uid == '' || uid.length < 7) {
+  if (uid == '' || uid.length < 6) {
     toast("Enter a valid value");
     document.getElementById('uid').focus();
     checkReg = 1;   //1 means wait
@@ -154,7 +154,7 @@ function sendData() {
     document.getElementById('mail').focus();
     checkReg = 1;
   }
-  else if (pass == '' || pass.length < 6) {
+  else if (pass == '' || pass.length < 7) {
     toast("Enter a valid value");
     document.getElementById('pass').focus();
     checkReg = 1;
