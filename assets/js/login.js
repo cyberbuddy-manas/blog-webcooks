@@ -143,29 +143,31 @@ function dataVerify() {
 
   if (uid == "") {
     toast("Enter a valid value.");
+    document.getElementById('uid').focus();
   }
   else if (uid.length < 6) {
     toast("Minimum length 6 characters.");
+    document.getElementById('uid').focus();
   }
   else if (pass == "") {
     toast("Enter a valid value.");
+    document.getElementById('pass').focus();
   }
   else if (pass.length < 7) {
     toast("Minimum length 7 characters.");
+    document.getElementById('pass').focus();
   }
 
   db.ref().once("value", (value)=> {
-    let usrKeys = Object.keys(value.val());
     let values = value.val();
+    let usrKeys = Object.keys(value.val());
 
     for (var i = 0; i < usrKeys.length; i++) {
-      // console.log(value.val().manas22)
-      // if (uid == usrKeys[0]) {
-      //   console.log(values.usrKeys[0].usrData.password);
-      //   if (pass == values.usrKeys[i].usrData.password) {
-      //     toast("Login Successful")
-      //   }
-      // }
+      if (uid == usrKeys[i]) {
+        const match = usrKeys[i];
+        console.log("UID Matches", match);
+        console.log(values);
+      }
     }
   })
 }
